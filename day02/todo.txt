@@ -1,0 +1,2 @@
+- fixing the first part code (how the advanceMethod variable works)
+- make the code more clean
