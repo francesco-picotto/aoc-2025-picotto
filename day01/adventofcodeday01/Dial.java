@@ -21,15 +21,25 @@ public class Dial {
         if(advanceMethod)
         {
             // PART B
-            zeros = (int) floor((double) steps / 100); //how many times it hits zero
+            zeros = steps / 100; //how many times it hits zero
             int remainder = steps % 100;
-            if(dir == 'R' && remainder >= (100-position)) zeros++;
-            else if(dir == 'L' && position != 0 && remainder >= position) zeros++;
+
+
+            if(remainder > 0){
+                if(dir == 'R'){
+                    if(position == 0 || position + remainder >= 100) zeros++;
+                }
+                else{
+                    if(position - remainder <= 0) zeros++;
+                }
+            }
+            position = ((position + delta) % 100 + 100) % 100;
         }
         else {
+            position = ((position + delta) % 100 + 100) % 100;
             zeros = isOnZero()? 1:0;
         }
-        position = (position + 100 + delta) % 100;
+
         return zeros;
     }
 

@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 
         List<String> instructions;
-        try ( Stream<String> lines = Files.lines(Paths.get("day01/input_day01.txt")) ) {
+        try ( Stream<String> lines = Files.lines(Paths.get("day01/adventofcodeday01/input.txt")) ) {
             instructions = lines
                     .map(String::trim)
                     .filter(line -> !line.isEmpty())
